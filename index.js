@@ -44,5 +44,5 @@ app.post('/', checkExist, (req, res) => {
 
 
 
-
-app.listen(6676)
+port = process.env.PORT || 80
+app.listen(port)
