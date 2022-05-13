@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 mongoose.connect('mongodb+srv://ismail51:Biloute1@cluster0.pyfql.mongodb.net/Cluster0?retryWrites=true&w=majority')
 
+setInterval(() => {
+  console.log(mongoose.connection.readyState);
+}, 1000);
 app.use(express.json())
 app.use(cors())
 
@@ -43,4 +46,5 @@ app.post('/', checkExist, (req, res) => {
 
 
 port = process.env.PORT || 80
+console.log(port)
 app.listen(port)
