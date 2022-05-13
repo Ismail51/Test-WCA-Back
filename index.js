@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
-mongoose.connect('mongodb://localhost:27017/cyclades')
+mongoose.connect('mongodb+srv://ismail51:Biloute1@cluster0.pyfql.mongodb.net/Cluster0?retryWrites=true&w=majority')
 
 app.use(express.json())
 app.use(cors())
@@ -23,11 +23,9 @@ const checkExist = (req, res, next) => {
 }
 
 app.get('/', (req, res) => {
-  res.json('test')
-
-  // Model.find().then(data => {
-  //   res.json(data)
-  // })
+  Model.find().then(data => {
+    res.json(data)
+  })
 })
 
 
