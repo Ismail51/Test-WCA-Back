@@ -13,20 +13,21 @@ const argonautes = mongoose.Schema({
 
 const Model = new mongoose.model('argonautes', argonautes)
 const checkExist = (req, res, next) => {
-  res.json('test')
-  // Model.find({ name: req.body.name }).then(data => {
-  //   console.log(data);
-  //   if (data.length > 0) {
-  //     res.status(400).json('exist')
-  //   }
-  //   else { next() }
-  // })
+  Model.find({ name: req.body.name }).then(data => {
+    console.log(data);
+    if (data.length > 0) {
+      res.status(400).json('exist')
+    }
+    else { next() }
+  })
 }
 
 app.get('/', (req, res) => {
-  Model.find().then(data => {
-    res.json(data)
-  })
+  res.json('test')
+
+  // Model.find().then(data => {
+  //   res.json(data)
+  // })
 })
 
 
